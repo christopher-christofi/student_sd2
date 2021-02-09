@@ -15,7 +15,7 @@ app.get("/goodbye", function(req, res) {
 });
 
 // Create a get for /hello/<name> with name provided by user
-app.get("/hello/:Ella", function(req, res) {
+app.get("/hello/:name", function(req, res) {
     // req.params contains any parameters in the request
     res.send("Hello " + req.params.name);
 });
