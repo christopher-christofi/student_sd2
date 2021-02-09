@@ -16,6 +16,7 @@ let db = new sqlite3.Database("students.db", function(err) {
 // SQL query to run
 var sql = "SELECT * FROM Modules"
 
+// db.each
 // Execute SQL query, and run function on every row returned.
 //db.each(sql, function(err, row) {
     // If error display
@@ -26,17 +27,29 @@ var sql = "SELECT * FROM Modules"
 //    console.log(row.code + "\t" + row.name);
 //});
 
+// db.all
 // Execute query to run
-db.all(sql, function(err, rows) {
+//db.all(sql, function(err, rows) {
+    // If error display
+//    if (err) {
+//        return console.error(err.message);
+//    }
+    // Print the code column and name column from row separated by a tab \t
+//    for (var row of rows) {
+//        console.log(row.code + "\t" + row.name);
+//    }
+//});
+
+// db.get
+// Execute SQL query , and run function on first row.
+db.get(sql, function(err, row) {
     // If error display
     if (err) {
         return console.error(err.message);
     }
     // Print the code column and name column from row separated by a tab \t
-    for (var row of rows) {
-        console.log(row.code + "\t" + row.name);
-    }
-})
+    console.log(row.code + "\t" + row.name);
+});
 
 // Close the database connection.
 // Always close the connection when you are finished with it.
