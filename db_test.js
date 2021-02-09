@@ -14,7 +14,7 @@ let db = new sqlite3.Database("students.db", function(err) {
 });
 
 // SQL query to run
-var sql = "SELECT * FROM Modules"
+//var sql = "SELECT * FROM Modules"
 
 // db.each
 // Execute SQL query, and run function on every row returned.
@@ -42,13 +42,31 @@ var sql = "SELECT * FROM Modules"
 
 // db.get
 // Execute SQL query , and run function on first row.
-db.get(sql, function(err, row) {
+//db.get(sql, function(err, row) {
     // If error display
+//    if (err) {
+//        return console.error(err.message);
+//    }
+    // Print the code column and name column from row separated by a tab \t
+//    console.log(row.code + "\t" + row.name);
+//});
+
+// run
+// SQL statement to run
+var sql = `
+    INSERT INTO Student
+    VALUES ("STU007", "Peter Pan")`;
+
+// Execute statement to run; no error handling
+// db.run(sql);
+
+// Execute SQL statement
+db.run(sql, function(err) {
+    // If error, print it out
     if (err) {
         return console.error(err.message);
     }
-    // Print the code column and name column from row separated by a tab \t
-    console.log(row.code + "\t" + row.name);
+    console.log("Row inserted into database.")
 });
 
 // Close the database connection.
