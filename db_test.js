@@ -14,7 +14,7 @@ let db = new sqlite3.Database("students.db", function(err) {
 });
 
 // SQL query to run
-var sql = "SELECT * FROM Modules";
+var sql = "SELECT * FROM Modules"
 
 // Execute SQL query, and run function on every row returned.
 db.each(sql, function(err, row) {
