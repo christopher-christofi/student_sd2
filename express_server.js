@@ -20,5 +20,10 @@ app.get("/hello/:name", function(req, res) {
     res.send("Hello " + req.params.name);
 });
 
+// Create a get for /test
+app.get("/test", function(req, res) {
+    res.send("Welcome to the test page!");
+});
+
 // Start server on port 3000
 app.listen(3000);
