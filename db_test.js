@@ -17,14 +17,26 @@ let db = new sqlite3.Database("students.db", function(err) {
 var sql = "SELECT * FROM Modules"
 
 // Execute SQL query, and run function on every row returned.
-db.each(sql, function(err, row) {
+//db.each(sql, function(err, row) {
+    // If error display
+//    if (err) {
+//        return console.error(err.message);
+//    }
+    // Print the code column and name columne from row separated by a tab \t
+//    console.log(row.code + "\t" + row.name);
+//});
+
+// Execute query to run
+db.all(sql, function(err, rows) {
     // If error display
     if (err) {
         return console.error(err.message);
     }
-    // Print the code column and name columne from row separated by a tab \t
-    console.log(row.code + "\t" + row.name);
-});
+    // Print the code column and name column from row separated by a tab \t
+    for (var row of rows) {
+        console.log(row.code + "\t" + row.name);
+    }
+})
 
 // Close the database connection.
 // Always close the connection when you are finished with it.
